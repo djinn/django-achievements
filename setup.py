@@ -1,4 +1,10 @@
 from distutils.core import setup
+from sys import version_info
+if version_info[0] == 2 and version_info[1] > 6:
+    importlib = ["importlib>=1.0.2"]
+else:
+    importlib = []
+
 setup(
     name = "django-achievements",
     packages = ["achievements", "achievements.migrations", "achievements.templatetags"],
@@ -7,7 +13,7 @@ setup(
     author = "Olivier Girardot",
     author_email = "ssaboum@gmail.com",
     url = "https://github.com/ssaboum/django-achievements",
-    install_requires = ["importlib>=1.0.2", "django-appconf>=0.4.1"],
+    install_requires = importlib + [ "django-appconf>=0.4.1"],
     classifiers = [
         "Programming Language :: Python",
         "License :: OSI Approved :: BSD License",
