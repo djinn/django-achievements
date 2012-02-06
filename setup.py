@@ -1,9 +1,9 @@
 from distutils.core import setup
 from sys import version_info
 if version_info[0] == 2 and version_info[1] > 6:
-    importlib = ["importlib>=1.0.2"]
-else:
     importlib = []
+else:
+    importlib = ["importlib>=1.0.2"]
 
 setup(
     name = "django-achievements",
